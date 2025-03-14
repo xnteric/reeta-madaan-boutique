@@ -116,7 +116,11 @@ export function generateStaticParams(): Array<PageParams> {
 }
 
 // Generate metadata for the page
-export function generateMetadata({ params }: { params: PageParams }): Metadata {
+export function generateMetadata({ 
+  params 
+}: { 
+  params: PageParams 
+}): Metadata {
   const product = allProducts.find(p => p.id === Number(params.id));
   
   if (!product) {
@@ -132,12 +136,14 @@ export function generateMetadata({ params }: { params: PageParams }): Metadata {
   };
 }
 
-// The main page component
-export default function ProductDetailPage({ 
+// The main page component - make it async to match Next.js 15 expectations
+export default async function ProductDetailPage({ 
   params 
 }: { 
   params: PageParams 
 }) {
+  // In a real app, we'd fetch this data asynchronously
+  // For static export, we're using the static data defined above
   const productId = Number(params.id);
   const product = allProducts.find(p => p.id === productId);
   
