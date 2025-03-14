@@ -3,6 +3,11 @@ import { Metadata } from "next";
 import ProductDetail from "@/components/ProductDetail";
 import { type Product } from "@/components/ProductDetail";
 
+// Define the params type for this page
+type PageParams = {
+  id: string;
+};
+
 // Combined products data (normally this would come from a database or API)
 const allProducts: Product[] = [
   {
@@ -104,14 +109,14 @@ const allProducts: Product[] = [
 ];
 
 // Required for static site generation when using output: 'export'
-export function generateStaticParams() {
+export function generateStaticParams(): Array<PageParams> {
   return allProducts.map((product) => ({
     id: product.id.toString(),
   }));
 }
 
 // Generate metadata for the page
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
+export function generateMetadata({ params }: { params: PageParams }): Metadata {
   const product = allProducts.find(p => p.id === Number(params.id));
   
   if (!product) {
@@ -128,10 +133,10 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
 }
 
 // The main page component
-export default async function ProductDetailPage({ 
+export default function ProductDetailPage({ 
   params 
 }: { 
-  params: { id: string } 
+  params: PageParams 
 }) {
   const productId = Number(params.id);
   const product = allProducts.find(p => p.id === productId);
