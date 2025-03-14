@@ -3,12 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
+  output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
-    domains: [
-      "source.unsplash.com",
-      "images.unsplash.com",
-      "web-assets.same.dev",
-    ],
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

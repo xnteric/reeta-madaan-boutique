@@ -17,7 +17,7 @@ const indiaWearProducts = [
   {
     id: 1,
     name: "Anarkali Kurta Set",
-    image: "https://web-assets.same.dev/1564794122/4203062691.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹12,999",
     category: "India Wear",
     isNew: true,
@@ -25,7 +25,7 @@ const indiaWearProducts = [
   {
     id: 2,
     name: "Embroidered Punjabi Suit",
-    image: "https://web-assets.same.dev/4117429575/1078101320.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹14,599",
     category: "India Wear",
     isNew: false,
@@ -33,7 +33,7 @@ const indiaWearProducts = [
   {
     id: 3,
     name: "Hand Block Printed Kurta",
-    image: "https://web-assets.same.dev/3846276091/3213301.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹8,999",
     category: "India Wear",
     isNew: true,
@@ -41,7 +41,7 @@ const indiaWearProducts = [
   {
     id: 4,
     name: "Traditional Saree",
-    image: "https://web-assets.same.dev/1564794122/4203062691.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹18,599",
     category: "India Wear",
     isNew: false,
@@ -52,7 +52,7 @@ const westernWearProducts = [
   {
     id: 5,
     name: "Silk Fusion Blouse",
-    image: "https://web-assets.same.dev/4117429575/1078101320.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹4,999",
     category: "Western Wear",
     isNew: true,
@@ -60,7 +60,7 @@ const westernWearProducts = [
   {
     id: 6,
     name: "Contemporary Pants",
-    image: "https://web-assets.same.dev/1564794122/4203062691.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹6,599",
     category: "Western Wear",
     isNew: false,
@@ -68,7 +68,7 @@ const westernWearProducts = [
   {
     id: 7,
     name: "Designer Top",
-    image: "https://web-assets.same.dev/3826536520/3735686446.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹3,999",
     category: "Western Wear",
     isNew: true,
@@ -76,7 +76,7 @@ const westernWearProducts = [
   {
     id: 8,
     name: "Indo-Western Jacket",
-    image: "https://web-assets.same.dev/4117429575/1078101320.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹9,599",
     category: "Western Wear",
     isNew: false,

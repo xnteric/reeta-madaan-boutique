@@ -11,7 +11,7 @@ const blogPosts = [
     title: "The Art of Hand Block Printing in Indian Fashion",
     excerpt: "Discover the intricate craft of hand block printing and how this traditional technique continues to influence modern Indian fashion designs.",
     date: "March 8, 2024",
-    image: "https://web-assets.same.dev/1051021907/2539210816.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     category: "Fashion Techniques",
     readTime: "5 min read"
   },

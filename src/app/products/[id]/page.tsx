@@ -40,7 +40,7 @@ const allProducts = [
   {
     id: 3,
     name: "Hand Block Printed Kurta",
-    image: "https://web-assets.same.dev/3846276091/3213301.png",
+    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
     price: "₹8,999",
     category: "India Wear",
     isNew: true,
