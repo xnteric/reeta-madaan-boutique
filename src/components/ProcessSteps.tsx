@@ -180,7 +180,7 @@ export default function ProcessSteps() {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-cream relative overflow-hidden">
+    <section ref={ref} className="py-28 bg-cream relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -198,13 +198,13 @@ export default function ProcessSteps() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">
+          <h2 className="text-3xl md:text-5xl font-serif mb-6">
             How to Get My <span className="text-primary">Clothing Designs</span> Made
           </h2>
-          <div className="h-0.5 w-20 bg-primary mx-auto mb-6" />
-          <p className="text-muted-foreground">
+          <div className="h-0.5 w-24 bg-primary mx-auto mb-8" />
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             From conception to delivery, our streamlined process ensures that your design vision becomes reality
             with the exceptional quality and craftsmanship that defines Reeta Madaan.
           </p>
@@ -214,67 +214,55 @@ export default function ProcessSteps() {
           variants={container}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col md:flex-row items-start justify-between gap-4 relative"
+          className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-6 relative"
         >
-          {/* Process Line */}
-          <div className="absolute left-10 top-10 bottom-10 w-0.5 bg-primary/30 hidden md:block" />
-
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
               variants={item}
-              className="relative flex flex-col md:flex-row items-start gap-4 w-full md:w-1/5"
+              className="relative bg-white/90 rounded-xl shadow-sm p-6 flex flex-col items-center md:items-start max-w-md mx-auto md:mx-0"
             >
-              {/* Step Number and Icon Circle */}
-              <div className="relative z-10">
-                <div className="relative">
-                  <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary text-white shadow-lg mb-4">
-                    <div className="text-white">
-                      {step.icon}
-                    </div>
+              {/* Step Number and Icon Circle - Restructured */}
+              <div className="relative flex items-center justify-center">
+                <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary text-white shadow-md">
+                  <div className="text-white">
+                    {step.icon}
                   </div>
+                </div>
 
-                  {/* Step number badge */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-medium text-sm">
-                    {step.id}
-                  </div>
+                {/* Step number badge - repositioned */}
+                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-medium text-sm shadow-sm">
+                  {step.id}
                 </div>
               </div>
 
-              {/* Step Content */}
-              <div className="md:ml-4 flex-1">
-                <h3 className="text-xl font-serif font-medium mb-1">
+              {/* Step Content - Improved spacing */}
+              <div className="mt-6 text-center md:text-left w-full">
+                <h3 className="text-xl font-serif font-medium mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-primary font-medium mb-3">
+                <p className="text-sm text-primary font-medium mb-4">
                   {step.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>
-
-              {/* Connector Line for Mobile - to separate each step */}
-              {index < steps.length - 1 && (
-                <div className="h-6 w-0.5 bg-primary/30 mx-auto my-4 md:hidden" />
-              )}
             </motion.div>
           ))}
         </motion.div>
 
+        {/* Separate container for the quote button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="flex justify-center mt-12"
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="mt-24 text-center"
         >
-          <Button
-            asChild
-            className="bg-primary hover:bg-primary/90 text-white px-6"
-          >
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 h-auto text-base">
             <Link href="/contact-us" className="flex items-center gap-2">
               Get a Quote
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </Link>
           </Button>
         </motion.div>

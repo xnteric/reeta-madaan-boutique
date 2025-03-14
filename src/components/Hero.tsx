@@ -98,7 +98,7 @@ export default function Hero() {
               </Link>
             </Button>
 
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10 block">
+            <Button asChild variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link href="/about-us">
                 About Us
               </Link>

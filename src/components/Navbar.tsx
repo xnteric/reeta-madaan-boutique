@@ -10,36 +10,64 @@ import { MenuIcon, X, ShoppingBag, Search } from "lucide-react";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/lib/cart-context";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
-  {
-    href: "/products",
-    label: "Products",
-    children: [
-      { href: "/products/india-wear", label: "India Wear" },
-      { href: "/products/western-wear", label: "Western Wear" },
-      { href: "/products/accessories", label: "Accessories" },
-      { href: "/products/custom-designs", label: "Custom Designs" },
-    ]
-  },
+  { href: "/products", label: "Products" },
   { href: "/blog", label: "Blog" },
   { href: "/contact-us", label: "Contact Us" },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const [isScrolled, setIsScrolled] = useState(!isHomePage);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { items, itemCount, removeItem, updateQuantity } = useCart();
 
   useEffect(() => {
+    // Set initial scroll state based on current scroll position and path
+    const initialCheck = () => {
+      // Always use solid navbar on non-home pages, regardless of scroll position
+      if (!isHomePage) {
+        setIsScrolled(true);
+        return;
+      }
+      
+      // On home page, check scroll position
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    // Run immediately on component mount to set correct initial state
+    initialCheck();
+    
+    // Then add listener for future scroll events
     const handleScroll = () => {
+      // On non-home pages, always keep the scrolled style
+      if (!isHomePage) {
+        setIsScrolled(true);
+        return;
+      }
+      
       setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
+
+  // Re-check isScrolled when pathname changes
+  useEffect(() => {
+    // Update isScrolled based on the new path
+    if (!isHomePage) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(window.scrollY > 10);
+    }
+  }, [pathname, isHomePage]);
 
   return (
     <header
@@ -76,76 +104,187 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
-            {navItems.map((item) =>
-              item.children ? (
-                <NavigationMenuItem key={item.href}>
-                  <NavigationMenuTrigger className={cn(
-                    "font-sans text-sm font-medium",
-                    isScrolled ? "text-foreground" : "text-white"
-                  )}>
-                    {item.label}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={child.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              <div className="text-sm font-medium">{child.label}</div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ) : (
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
                 <NavigationMenuItem key={item.href}>
                   <Link href={item.href} legacyBehavior passHref>
                     <NavigationMenuLink
                       className={cn(
                         "luxury-transition group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
-                        isScrolled ? "text-foreground" : "text-white"
+                        isScrolled ? "text-foreground" : "text-white",
+                        isActive && (isScrolled ? "text-primary" : "text-white font-semibold")
                       )}
                     >
                       <span>{item.label}</span>
                       <span className={cn(
-                        "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 mt-0.5",
+                        "block h-0.5 mt-0.5",
+                        isActive 
+                          ? "max-w-full bg-primary" 
+                          : "max-w-0 group-hover:max-w-full transition-all duration-500",
                         isScrolled ? "bg-primary" : "bg-white"
                       )}></span>
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
-              )
-            )}
+              );
+            })}
           </NavigationMenuList>
         </NavigationMenu>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 lg:gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Search"
-            className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}
-          >
-            <Search size={20} />
-          </Button>
+        <div className="flex items-center gap-2 lg:gap-4 pr-2">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Search"
+                className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}
+              >
+                <Search size={20} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="top" className="w-full h-[300px]">
+              <div className="h-full flex flex-col">
+                <div className="flex items-center justify-between pb-4 border-b">
+                  <h2 className="text-xl font-serif">Search Products</h2>
+                  <Button variant="ghost" size="icon">
+                    <X size={20} />
+                  </Button>
+                </div>
+                <div className="flex-1 py-6">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                    <input 
+                      type="text" 
+                      placeholder="Search for products..." 
+                      className="w-full rounded-md border border-input bg-background px-10 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <h3 className="text-sm font-medium mb-2">Popular Searches</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="cursor-pointer">Anarkali</Badge>
+                      <Badge variant="secondary" className="cursor-pointer">Punjabi Suit</Badge>
+                      <Badge variant="secondary" className="cursor-pointer">Saree</Badge>
+                      <Badge variant="secondary" className="cursor-pointer">Custom Design</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Shopping Bag"
-            className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}
-          >
-            <ShoppingBag size={20} />
-            <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-primary text-white">
-              0
-            </Badge>
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Shopping Bag"
+                className="relative flex items-center justify-center w-10 h-10"
+              >
+                <ShoppingBag className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"} size={20} />
+                <span className="absolute -top-2 -right-1.5 flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-primary text-white text-xs font-medium">
+                  {itemCount}
+                </span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[350px] sm:w-[450px]">
+              <div className="h-full flex flex-col">
+                <div className="flex items-center justify-between pb-4 border-b">
+                  <h2 className="text-xl font-serif">Your Cart</h2>
+                  <Button variant="ghost" size="icon">
+                    <X size={20} />
+                  </Button>
+                </div>
+                <div className="flex-1 py-6 overflow-auto">
+                  {items.length > 0 ? (
+                    <div className="space-y-6">
+                      {items.map((item) => (
+                        <div key={item.id} className="flex gap-4">
+                          <div className="w-20 h-20 rounded-md overflow-hidden bg-muted flex-shrink-0">
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              width={80}
+                              height={80}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex justify-between">
+                              <h4 className="font-medium">{item.name}</h4>
+                              <Button 
+                                variant="ghost" 
+                                size="icon" 
+                                className="h-6 w-6 text-muted-foreground hover:text-foreground -mt-1 -mr-1"
+                                onClick={() => removeItem(item.id)}
+                              >
+                                <X size={14} />
+                              </Button>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{item.category}</p>
+                            <div className="flex justify-between items-center mt-2">
+                              <div className="flex items-center border rounded-md">
+                                <Button 
+                                  variant="ghost" 
+                                  size="icon" 
+                                  className="h-8 w-8"
+                                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                >-</Button>
+                                <span className="w-8 text-center">{item.quantity}</span>
+                                <Button 
+                                  variant="ghost" 
+                                  size="icon" 
+                                  className="h-8 w-8"
+                                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                >+</Button>
+                              </div>
+                              <span className="font-medium">{item.price}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      
+                      <div className="border-t pt-4 mt-6">
+                        <div className="flex justify-between text-sm mb-2">
+                          <span className="text-muted-foreground">Subtotal</span>
+                          <span className="font-medium">
+                            ₹{items.reduce((sum, item) => {
+                              const price = parseFloat(item.price.replace('₹', '').replace(',', ''));
+                              return sum + (price * item.quantity);
+                            }, 0).toLocaleString('en-IN')}
+                          </span>
+                        </div>
+                        <div className="flex justify-between text-sm mb-4">
+                          <span className="text-muted-foreground">Shipping</span>
+                          <span className="font-medium">Calculated at checkout</span>
+                        </div>
+                        <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                          Checkout
+                        </Button>
+                        <Button asChild variant="outline" className="w-full mt-2">
+                          <Link href="/products">Continue Shopping</Link>
+                        </Button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
+                      <ShoppingBag size={50} className="text-muted-foreground/50" />
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-medium">Your cart is empty</h3>
+                        <p className="text-sm text-muted-foreground">Add items to your cart to see them here.</p>
+                      </div>
+                      <Button asChild className="mt-4 bg-primary hover:bg-primary/90">
+                        <Link href="/products">Browse Products</Link>
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
 
           <Button
             asChild
@@ -176,36 +315,25 @@ export default function Navbar() {
                 </div>
                 <nav className="flex-1 overflow-auto p-4">
                   <ul className="space-y-4">
-                    {navItems.map((item) => (
-                      <li key={item.href} className="py-2">
-                        {item.children ? (
-                          <div className="space-y-3">
-                            <div className="font-medium text-primary">{item.label}</div>
-                            <ul className="ml-4 space-y-2">
-                              {item.children.map((child) => (
-                                <li key={child.href}>
-                                  <Link
-                                    href={child.href}
-                                    className="block py-1.5 text-muted-foreground hover:text-foreground"
-                                    onClick={() => setIsMenuOpen(false)}
-                                  >
-                                    {child.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : (
+                    {navItems.map((item) => {
+                      const isActive = pathname === item.href;
+                      return (
+                        <li key={item.href} className="py-2">
                           <Link
                             href={item.href}
-                            className="block py-1.5 text-lg font-medium hover:text-primary"
+                            className={cn(
+                              "block py-1.5 text-lg font-medium",
+                              isActive 
+                                ? "text-primary border-l-2 border-primary pl-2"
+                                : "hover:text-primary"
+                            )}
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {item.label}
                           </Link>
-                        )}
-                      </li>
-                    ))}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </nav>
                 <div className="p-4 border-t mt-auto">

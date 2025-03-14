@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -5,7 +8,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Eye } from "lucide-react";
+import { Eye, ShoppingBag } from "lucide-react";
+import { useCart } from "@/lib/cart-context";
+import { toast } from "sonner";
+import ProductQuickView from "@/components/ProductQuickView";
 
 const indiaWearProducts = [
   {
@@ -78,6 +84,77 @@ const westernWearProducts = [
 ];
 
 export default function ProductsPage() {
+  const { addItem } = useCart();
+  const [quickViewProduct, setQuickViewProduct] = useState<any | null>(null);
+  const [quickViewOpen, setQuickViewOpen] = useState(false);
+
+  const handleAddToCart = (product: any) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+    });
+    toast.success(`${product.name} added to cart!`);
+  };
+
+  const handleQuickView = (product: any) => {
+    setQuickViewProduct(product);
+    setQuickViewOpen(true);
+  };
+
+  const renderProductCard = (product: any) => (
+    <div 
+      key={product.id} 
+      className="group relative overflow-hidden rounded-lg border bg-background shadow-sm transition-all duration-300 hover:shadow-md"
+    >
+      <Link href={`/products/${product.id}`} className="block cursor-pointer">
+        <div className="relative aspect-square overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={300}
+            height={300}
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          {product.isNew && (
+            <Badge className="absolute top-2 left-2 bg-primary text-white">New</Badge>
+          )}
+          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center gap-2">
+            <Button 
+              size="icon" 
+              variant="secondary" 
+              className="h-9 w-9 rounded-full"
+              onClick={(e) => {
+                e.preventDefault();
+                handleQuickView(product);
+              }}
+            >
+              <Eye size={16} />
+            </Button>
+            <Button 
+              size="icon" 
+              className="h-9 w-9 rounded-full bg-primary hover:bg-primary/90 text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                handleAddToCart(product);
+              }}
+            >
+              <ShoppingBag size={16} />
+            </Button>
+          </div>
+        </div>
+      </Link>
+      <Link href={`/products/${product.id}`} className="block cursor-pointer">
+        <div className="mt-4 text-center pb-4">
+          <h3 className="text-lg font-medium">{product.name}</h3>
+          <p className="text-sm text-primary font-semibold mt-1">{product.price}</p>
+        </div>
+      </Link>
+    </div>
+  );
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -112,84 +189,27 @@ export default function ProductsPage() {
 
             <TabsContent value="india-wear">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {indiaWearProducts.map((product) => (
-                  <div key={product.id} className="group relative overflow-hidden">
-                    <div className="relative h-[380px] w-full overflow-hidden rounded-lg bg-secondary/20">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {product.isNew && (
-                        <Badge className="absolute top-4 left-4 bg-primary text-white">
-                          New Arrival
-                        </Badge>
-                      )}
-                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
-                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 translate-y-10 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <Button
-                          asChild
-                          size="sm"
-                          className="rounded-full bg-white text-primary hover:bg-white/90"
-                        >
-                          <Link href={`/products/${product.id}`} className="flex items-center gap-1">
-                            <Eye size={14} />
-                            Quick View
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h3 className="text-lg font-medium">{product.name}</h3>
-                      <p className="text-sm text-primary font-semibold mt-1">{product.price}</p>
-                    </div>
-                  </div>
-                ))}
+                {indiaWearProducts.map(renderProductCard)}
               </div>
             </TabsContent>
 
             <TabsContent value="western-wear">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {westernWearProducts.map((product) => (
-                  <div key={product.id} className="group relative overflow-hidden">
-                    <div className="relative h-[380px] w-full overflow-hidden rounded-lg bg-secondary/20">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {product.isNew && (
-                        <Badge className="absolute top-4 left-4 bg-primary text-white">
-                          New Arrival
-                        </Badge>
-                      )}
-                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
-                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 translate-y-10 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <Button
-                          asChild
-                          size="sm"
-                          className="rounded-full bg-white text-primary hover:bg-white/90"
-                        >
-                          <Link href={`/products/${product.id}`} className="flex items-center gap-1">
-                            <Eye size={14} />
-                            Quick View
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h3 className="text-lg font-medium">{product.name}</h3>
-                      <p className="text-sm text-primary font-semibold mt-1">{product.price}</p>
-                    </div>
-                  </div>
-                ))}
+                {westernWearProducts.map(renderProductCard)}
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
+
+      {/* Quick View Modal */}
+      {quickViewProduct && (
+        <ProductQuickView
+          product={quickViewProduct}
+          open={quickViewOpen}
+          onOpenChange={setQuickViewOpen}
+        />
+      )}
 
       <Footer />
     </main>

@@ -12,15 +12,15 @@ export default function QualityGuarantee() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="py-24 bg-background relative">
+    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-background relative overflow-hidden">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-x-12 lg:gap-x-16 items-center">
           {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative mx-auto md:mx-0 max-w-md md:max-w-full px-4 md:px-0"
           >
             <div className="relative rounded-lg overflow-hidden aspect-[4/5] w-full">
               <Image
@@ -35,10 +35,10 @@ export default function QualityGuarantee() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="absolute -bottom-8 -right-8 md:bottom-auto md:-right-12 md:top-1/2 md:-translate-y-1/2 bg-cream p-5 md:p-6 rounded-lg shadow-xl max-w-xs"
+              className="absolute -bottom-8 right-0 md:bottom-8 md:right-0 md:translate-x-1/4 bg-cream p-5 md:p-6 rounded-lg shadow-xl max-w-xs z-10"
             >
               <div className="flex items-start gap-4">
-                <div className="bg-gold text-white p-3 rounded-full">
+                <div className="bg-gold text-white p-3 rounded-full flex-shrink-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -68,16 +68,16 @@ export default function QualityGuarantee() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-8 md:pl-4"
           >
             <div>
-              <h3 className="text-sm uppercase tracking-wider text-primary font-medium mb-2">About Our Quality</h3>
-              <h2 className="text-3xl md:text-4xl font-serif mb-4">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-medium mb-3">About Our Quality</h3>
+              <h2 className="text-3xl md:text-4xl font-serif mb-6 leading-tight">
                 Crafted to Perfection, <span className="text-primary">Designed for You</span>
               </h2>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-2xl">
               At Reeta Madaan, quality is at the heart of everything we do. From fabric selection to the final touches,
               each step in our process is guided by rigorous standards and a commitment to excellence.
             </p>
@@ -88,7 +88,7 @@ export default function QualityGuarantee() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="space-y-2"
+                className="space-y-2 bg-background/50 p-4 rounded-lg border border-border/50"
               >
                 <div className="bg-accent/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <svg
@@ -117,7 +117,7 @@ export default function QualityGuarantee() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="space-y-2"
+                className="space-y-2 bg-background/50 p-4 rounded-lg border border-border/50"
               >
                 <div className="bg-accent/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <svg
@@ -146,7 +146,7 @@ export default function QualityGuarantee() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="space-y-2"
+                className="space-y-2 bg-background/50 p-4 rounded-lg border border-border/50"
               >
                 <div className="bg-accent/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <svg
@@ -186,7 +186,7 @@ export default function QualityGuarantee() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                className="space-y-2"
+                className="space-y-2 bg-background/50 p-4 rounded-lg border border-border/50"
               >
                 <div className="bg-accent/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <svg

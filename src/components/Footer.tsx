@@ -135,82 +135,87 @@ export default function Footer() {
 
           {/* Contact Information */}
           <div className="md:col-span-3">
-            <h3 className="text-lg font-medium mb-4 text-white">Contact Us</h3>
-            <ul className="space-y-4">
+            <h3 className="text-lg font-medium mb-5 text-white">Contact Us</h3>
+            <ul className="space-y-5">
               <li className="flex items-start">
-                <MapPin size={20} className="mr-3 text-gold shrink-0 mt-0.5" />
-                <span className="text-white/70">
-                  261 Guru Teg Bahadur nagar Jalandhar city
+                <div className="bg-white/10 rounded-full p-2 mr-3">
+                  <MapPin size={18} className="text-gold shrink-0" />
+                </div>
+                <span className="text-white/80 leading-relaxed">
+                  261 Guru Teg Bahadur nagar<br /> 
+                  Jalandhar city
                 </span>
               </li>
-              <li className="flex items-center">
-                <Mail size={20} className="mr-3 text-gold shrink-0" />
-                <Link
-                  href="mailto:info@reetamadaan@gmail.com"
-                  className="text-white/70 hover:text-gold transition-colors duration-200"
-                >
-                  info@reetamadaan@gmail.com
-                </Link>
+              <li className="flex items-start">
+                <div className="bg-white/10 rounded-full p-2 mr-3">
+                  <Mail size={18} className="text-gold shrink-0" />
+                </div>
+                <div className="flex flex-col">
+                  <Link
+                    href="mailto:info@reetamadaan@gmail.com"
+                    className="text-white/80 hover:text-gold transition-colors duration-200"
+                  >
+                    info@reetamadaan@gmail.com
+                  </Link>
+                  <Link
+                    href="mailto:enquiry@reetamadaan@gmail.com"
+                    className="text-white/80 hover:text-gold transition-colors duration-200 mt-1"
+                  >
+                    enquiry@reetamadaan@gmail.com
+                  </Link>
+                </div>
               </li>
-              <li className="flex items-center">
-                <Mail size={20} className="mr-3 text-gold shrink-0" />
-                <Link
-                  href="mailto:enquiry@reetamadaan@gmail.com"
-                  className="text-white/70 hover:text-gold transition-colors duration-200"
-                >
-                  enquiry@reetamadaan@gmail.com
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Phone size={20} className="mr-3 text-gold shrink-0" />
-                <Link
-                  href="tel:+919876181817"
-                  className="text-white/70 hover:text-gold transition-colors duration-200"
-                >
-                  +91 9876181817
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Phone size={20} className="mr-3 text-gold shrink-0" />
-                <Link
-                  href="tel:+916280833993"
-                  className="text-white/70 hover:text-gold transition-colors duration-200"
-                >
-                  +91 6280833993
-                </Link>
+              <li className="flex items-start">
+                <div className="bg-white/10 rounded-full p-2 mr-3">
+                  <Phone size={18} className="text-gold shrink-0" />
+                </div>
+                <div className="flex flex-col">
+                  <Link
+                    href="tel:+919876181817"
+                    className="text-white/80 hover:text-gold transition-colors duration-200"
+                  >
+                    +91 9876181817
+                  </Link>
+                  <Link
+                    href="tel:+916280833993"
+                    className="text-white/80 hover:text-gold transition-colors duration-200 mt-1"
+                  >
+                    +91 6280833993
+                  </Link>
+                </div>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Subscription */}
           <div className="md:col-span-3">
-            <h3 className="text-lg font-medium mb-4 text-white">Get Enquiry</h3>
-            <form className="space-y-4">
+            <h3 className="text-lg font-medium mb-5 text-white">Get Enquiry</h3>
+            <form className="space-y-5">
               <div>
                 <Input
                   type="text"
                   placeholder="Name"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-gold"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold px-4 py-3 h-auto rounded-md hover:border-white/40 transition-colors"
                 />
               </div>
               <div>
                 <Input
                   type="email"
                   placeholder="Email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-gold"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold px-4 py-3 h-auto rounded-md hover:border-white/40 transition-colors"
                 />
               </div>
               <div>
                 <textarea
                   placeholder="Message"
                   rows={3}
-                  className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:border-gold focus:outline-none"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/60 focus:border-gold focus:outline-none hover:border-white/40 transition-colors"
                 ></textarea>
               </div>
               <div>
                 <Button
                   type="submit"
-                  className="w-full bg-gold hover:bg-gold/90 text-white border-none"
+                  className="w-full bg-gold hover:bg-gold/90 text-white border-none font-medium py-6 h-auto rounded-md transition-colors duration-300 mt-2"
                 >
                   Submit
                 </Button>
