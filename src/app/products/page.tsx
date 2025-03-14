@@ -13,7 +13,17 @@ import { useCart } from "@/lib/cart-context";
 import { toast } from "sonner";
 import ProductQuickView from "@/components/ProductQuickView";
 
-const indiaWearProducts = [
+// Product type definition to match ProductQuickView component
+type Product = {
+  id: number;
+  name: string;
+  image: string;
+  price: string;
+  category: string;
+  isNew?: boolean;
+};
+
+const indiaWearProducts: Product[] = [
   {
     id: 1,
     name: "Anarkali Kurta Set",
@@ -48,7 +58,7 @@ const indiaWearProducts = [
   },
 ];
 
-const westernWearProducts = [
+const westernWearProducts: Product[] = [
   {
     id: 5,
     name: "Silk Fusion Blouse",
@@ -85,10 +95,10 @@ const westernWearProducts = [
 
 export default function ProductsPage() {
   const { addItem } = useCart();
-  const [quickViewProduct, setQuickViewProduct] = useState<any | null>(null);
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addItem({
       id: product.id,
       name: product.name,
@@ -99,12 +109,12 @@ export default function ProductsPage() {
     toast.success(`${product.name} added to cart!`);
   };
 
-  const handleQuickView = (product: any) => {
+  const handleQuickView = (product: Product) => {
     setQuickViewProduct(product);
     setQuickViewOpen(true);
   };
 
-  const renderProductCard = (product: any) => (
+  const renderProductCard = (product: Product) => (
     <div 
       key={product.id} 
       className="group relative overflow-hidden rounded-lg border bg-background shadow-sm transition-all duration-300 hover:shadow-md"
@@ -128,6 +138,7 @@ export default function ProductsPage() {
               className="h-9 w-9 rounded-full"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 handleQuickView(product);
               }}
             >
@@ -138,6 +149,7 @@ export default function ProductsPage() {
               className="h-9 w-9 rounded-full bg-primary hover:bg-primary/90 text-white"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 handleAddToCart(product);
               }}
             >
