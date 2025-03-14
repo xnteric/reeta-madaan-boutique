@@ -1,0 +1,148 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { MapPin, Mail, Phone } from "lucide-react";
+
+export default function ContactUsPage() {
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+
+      <div className="pt-24 bg-cream">
+        <div className="container-custom py-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h1 className="text-3xl md:text-5xl font-serif mb-4">Contact Us</h1>
+            <div className="h-0.5 w-20 bg-primary mx-auto mb-6" />
+            <p className="text-muted-foreground">
+              We'd love to hear from you. Let us know how we can help with your fashion needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="bg-white rounded-lg shadow-sm p-8">
+              <h2 className="text-2xl font-serif mb-6">Get in Touch</h2>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Your name"
+                      required
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Your email address"
+                      required
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-1">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    type="text"
+                    placeholder="How can we help you?"
+                    required
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    placeholder="Your message..."
+                    required
+                    className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  ></textarea>
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                >
+                  Send Message
+                </Button>
+              </form>
+            </div>
+
+            {/* Contact Info & Map */}
+            <div className="space-y-8">
+              <div className="bg-white rounded-lg shadow-sm p-8">
+                <h2 className="text-2xl font-serif mb-6">Contact Information</h2>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-base font-medium">Address</h3>
+                      <p className="text-muted-foreground mt-1">
+                        261 Guru Teg Bahadur nagar Jalandhar city
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-base font-medium">Email</h3>
+                      <p className="text-muted-foreground mt-1">
+                        info@reetamadaan@gmail.com<br />
+                        enquiry@reetamadaan@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-base font-medium">Phone</h3>
+                      <p className="text-muted-foreground mt-1">
+                        +91 9876181817<br />
+                        +91 6280833993
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map */}
+              <div className="rounded-lg overflow-hidden shadow-sm h-[300px] bg-secondary/20">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.5354773603567!2d75.57976717501765!3d31.32392707413895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f5e9c089cf9%3A0x5f7f73f54bc715c2!2sGuru%20Teg%20Bahadur%20Nagar%2C%20Jalandhar%2C%20Punjab!5e0!3m2!1sen!2sin!4v1710400486062!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </main>
+  );
+}
