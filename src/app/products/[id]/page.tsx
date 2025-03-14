@@ -1,9 +1,10 @@
 // This is now a Server Component
 import { Metadata } from "next";
-import ClientProductDetailPage from "./ClientProductDetailPage";
+import ProductDetail from "@/components/ProductDetail";
+import { type Product } from "@/components/ProductDetail";
 
 // Combined products data (normally this would come from a database or API)
-const allProducts = [
+const allProducts: Product[] = [
   {
     id: 1,
     name: "Anarkali Kurta Set",
@@ -102,9 +103,8 @@ const allProducts = [
   },
 ];
 
-// This function is required for static site generation with dynamic routes
-// It tells Next.js which paths to pre-render at build time
-export async function generateStaticParams() {
+// Required for static site generation when using output: 'export'
+export function generateStaticParams() {
   return allProducts.map((product) => ({
     id: product.id.toString(),
   }));
@@ -127,15 +127,19 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   };
 }
 
-// The main page component is now a Server Component that passes data to the Client Component
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+// The main page component
+export default async function ProductDetailPage({ 
+  params 
+}: { 
+  params: { id: string } 
+}) {
   const productId = Number(params.id);
   const product = allProducts.find(p => p.id === productId);
   
   if (!product) {
-    // This will be handled by the client component, but we'll return minimal content
-    return <ClientProductDetailPage product={null} />;
+    // Return the client component with null product
+    return <ProductDetail product={null} />;
   }
   
-  return <ClientProductDetailPage product={product} />;
+  return <ProductDetail product={product} />;
 } 

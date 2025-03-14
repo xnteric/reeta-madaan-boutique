@@ -12,7 +12,7 @@ import { useCart } from "@/lib/cart-context";
 import { toast } from "sonner";
 
 // Product type definition
-type Product = {
+export type Product = {
   id: number;
   name: string;
   image: string;
@@ -25,11 +25,11 @@ type Product = {
   isNew?: boolean;
 };
 
-type ClientProductDetailPageProps = {
+export type ProductDetailProps = {
   product: Product | null;
 };
 
-export default function ClientProductDetailPage({ product }: ClientProductDetailPageProps) {
+export default function ProductDetail({ product }: ProductDetailProps) {
   const router = useRouter();
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
