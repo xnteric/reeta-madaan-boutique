@@ -194,10 +194,13 @@ export default function FeaturedProducts() {
                           </Button>
                         </div>
                       </div>
-                      <div className="mt-4 text-center">
-                        <h3 className="text-lg font-medium">{product.name}</h3>
-                        <p className="text-sm text-primary font-semibold mt-1">{product.price}</p>
-                      </div>
+                      <Link 
+                        href={`/products/${product.id}`} 
+                        className="mt-4 text-center block transition-all duration-300 cursor-pointer"
+                      >
+                        <h3 className="text-lg font-medium group-hover:text-primary transition-colors duration-300">{product.name}</h3>
+                        <p className="text-sm text-primary font-semibold mt-1 group-hover:scale-105 transition-transform duration-300">{product.price}</p>
+                      </Link>
                     </motion.div>
                   </CarouselItem>
                 ))}
@@ -247,10 +250,13 @@ export default function FeaturedProducts() {
                           </Button>
                         </div>
                       </div>
-                      <div className="mt-4 text-center">
-                        <h3 className="text-lg font-medium">{product.name}</h3>
-                        <p className="text-sm text-primary font-semibold mt-1">{product.price}</p>
-                      </div>
+                      <Link 
+                        href={`/products/${product.id}`} 
+                        className="mt-4 text-center block transition-all duration-300 cursor-pointer"
+                      >
+                        <h3 className="text-lg font-medium group-hover:text-primary transition-colors duration-300">{product.name}</h3>
+                        <p className="text-sm text-primary font-semibold mt-1 group-hover:scale-105 transition-transform duration-300">{product.price}</p>
+                      </Link>
                     </motion.div>
                   </CarouselItem>
                 ))}
