@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   title: "Reeta Madaan | Luxury Indian Fashion Boutique",
   description: "Where Tradition Meets Modern Elegance. Discover handcrafted, artisanal clothing with timeless appeal and contemporary style.",
   keywords: "Reeta Madaan, luxury fashion, Indian fashion, handcrafted clothing, artisanal clothing, punjabi suits, anarkali, traditional clothing, modern fashion",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#A14D36"
 };
 
 export default function RootLayout({

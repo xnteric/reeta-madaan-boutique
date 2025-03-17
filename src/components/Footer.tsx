@@ -25,9 +25,9 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="container-custom relative z-10 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-8">
           {/* Logo and About */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="sm:col-span-2 md:col-span-4 space-y-4">
             <Link href="/" className="inline-block">
               <div className="flex items-center gap-3">
                 <Image
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
 
           {/* Menu Links - Quick Links */}
-          <div className="md:col-span-2">
+          <div className="sm:col-span-1 md:col-span-2">
             <h3 className="text-lg font-medium mb-4 text-white">Menu</h3>
             <ul className="space-y-2">
               <li>
@@ -134,7 +134,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Information */}
-          <div className="md:col-span-3">
+          <div className="sm:col-span-1 md:col-span-3 mt-6 sm:mt-0">
             <h3 className="text-lg font-medium mb-5 text-white">Contact Us</h3>
             <ul className="space-y-5">
               <li className="flex items-start">
@@ -152,16 +152,16 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <Link
-                    href="mailto:info@reetamadaan@gmail.com"
+                    href="mailto:info@reetamadaan.com"
                     className="text-white/80 hover:text-gold transition-colors duration-200"
                   >
-                    info@reetamadaan@gmail.com
+                    info@reetamadaan.com
                   </Link>
                   <Link
-                    href="mailto:enquiry@reetamadaan@gmail.com"
+                    href="mailto:enquiry@reetamadaan.com"
                     className="text-white/80 hover:text-gold transition-colors duration-200 mt-1"
                   >
-                    enquiry@reetamadaan@gmail.com
+                    enquiry@reetamadaan.com
                   </Link>
                 </div>
               </li>
@@ -188,9 +188,9 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Subscription */}
-          <div className="md:col-span-3">
+          <div className="sm:col-span-2 md:col-span-3 mt-6 md:mt-0">
             <h3 className="text-lg font-medium mb-5 text-white">Get Enquiry</h3>
-            <form className="space-y-5">
+            <form className="space-y-4">
               <div>
                 <Input
                   type="text"
@@ -215,7 +215,7 @@ export default function Footer() {
               <div>
                 <Button
                   type="submit"
-                  className="w-full bg-gold hover:bg-gold/90 text-white border-none font-medium py-6 h-auto rounded-md transition-colors duration-300 mt-2"
+                  className="w-full bg-gold hover:bg-gold/90 text-white border-none font-medium py-5 h-auto rounded-md transition-colors duration-300 mt-2"
                 >
                   Submit
                 </Button>

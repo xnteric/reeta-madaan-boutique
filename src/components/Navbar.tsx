@@ -75,14 +75,14 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm py-2"
-          : "bg-black/30 backdrop-blur-sm py-4"
+          : "bg-black/30 backdrop-blur-sm py-2 sm:py-4"
       )}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-10">
-          <div className="flex items-center gap-2">
-            <div className="relative h-10 w-10 overflow-hidden">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="relative h-8 w-8 sm:h-10 sm:w-10 overflow-hidden">
               <Image
                 src="/logo.png"
                 alt="Reeta Madaan"
@@ -93,7 +93,7 @@ export default function Navbar() {
               />
             </div>
             <span className={cn(
-              "text-lg md:text-xl font-serif font-medium",
+              "text-base sm:text-lg md:text-xl font-serif font-medium",
               isScrolled ? "text-primary" : "text-white"
             )}>
               Reeta Madaan
@@ -133,16 +133,16 @@ export default function Navbar() {
         </NavigationMenu>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 lg:gap-4 pr-2">
+        <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 aria-label="Search"
-                className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}
+                className={isScrolled ? "text-foreground hover:text-primary p-1 sm:p-2" : "text-white hover:text-white/80 p-1 sm:p-2"}
               >
-                <Search size={20} />
+                <Search size={18} className="sm:w-5 sm:h-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="w-full h-[300px]">
@@ -182,18 +182,24 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 aria-label="Shopping Bag"
-                className="relative flex items-center justify-center w-10 h-10"
+                className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 p-1 sm:p-2"
               >
-                <ShoppingBag className={isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"} size={20} />
-                <span className="absolute -top-2 -right-1.5 flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-primary text-white text-xs font-medium">
+                <ShoppingBag 
+                  className={cn(
+                    "sm:w-5 sm:h-5",
+                    isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"
+                  )} 
+                  size={18} 
+                />
+                <span className="absolute -top-1.5 sm:-top-2 -right-1 sm:-right-1.5 flex items-center justify-center min-w-4 sm:min-w-5 h-4 sm:h-5 px-1 sm:px-1.5 rounded-full bg-primary text-white text-[10px] sm:text-xs font-medium">
                   {itemCount}
                 </span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[350px] sm:w-[450px]">
+            <SheetContent side="right" className="w-[300px] sm:w-[350px] md:w-[450px]">
               <div className="h-full flex flex-col">
                 <div className="flex items-center justify-between pb-4 border-b">
-                  <h2 className="text-xl font-serif">Your Cart</h2>
+                  <h2 className="text-lg sm:text-xl font-serif">Your Cart</h2>
                   <Button variant="ghost" size="icon">
                     <X size={20} />
                   </Button>
@@ -299,30 +305,30 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={cn("ml-2", isScrolled ? "text-foreground" : "text-white")}
+                className={cn("ml-1 sm:ml-2 p-1 sm:p-2", isScrolled ? "text-foreground" : "text-white")}
               >
-                <MenuIcon size={24} />
+                <MenuIcon size={22} className="sm:w-6 sm:h-6" />
                 <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[350px] border-l border-border bg-card p-0">
+            <SheetContent side="right" className="w-[280px] sm:w-[300px] md:w-[350px] border-l border-border bg-card p-0">
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b">
-                  <div className="font-serif font-medium text-lg">Menu</div>
+                <div className="flex items-center justify-between p-3 sm:p-4 border-b">
+                  <div className="font-serif font-medium text-base sm:text-lg">Menu</div>
                   <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
-                    <X size={20} />
+                    <X size={18} className="sm:w-5 sm:h-5" />
                   </Button>
                 </div>
-                <nav className="flex-1 overflow-auto p-4">
-                  <ul className="space-y-4">
+                <nav className="flex-1 overflow-auto p-3 sm:p-4">
+                  <ul className="space-y-3 sm:space-y-4">
                     {navItems.map((item) => {
                       const isActive = pathname === item.href;
                       return (
-                        <li key={item.href} className="py-2">
+                        <li key={item.href} className="py-1.5 sm:py-2">
                           <Link
                             href={item.href}
                             className={cn(
-                              "block py-1.5 text-lg font-medium",
+                              "block text-base sm:text-lg font-medium",
                               isActive 
                                 ? "text-primary border-l-2 border-primary pl-2"
                                 : "hover:text-primary"
@@ -336,9 +342,9 @@ export default function Navbar() {
                     })}
                   </ul>
                 </nav>
-                <div className="p-4 border-t mt-auto">
-                  <Button className="w-full bg-primary hover:bg-primary/90" asChild>
-                    <Link href="/contact-us">Get a Quote</Link>
+                <div className="p-3 sm:p-4 border-t mt-auto">
+                  <Button className="w-full bg-primary hover:bg-primary/90 py-2 sm:py-2.5 h-auto text-sm sm:text-base" asChild>
+                    <Link href="/contact-us" onClick={() => setIsMenuOpen(false)}>Get a Quote</Link>
                   </Button>
                 </div>
               </div>
