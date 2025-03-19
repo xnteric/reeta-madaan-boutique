@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import { Toaster } from "@/components/ui/sonner";
@@ -42,6 +43,7 @@ export default function RootLayout({
       <ClientBody>
         {children}
         <Toaster />
+        <Analytics />
       </ClientBody>
     </html>
   );
