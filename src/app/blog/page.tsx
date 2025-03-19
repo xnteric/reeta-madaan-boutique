@@ -11,7 +11,7 @@ const blogPosts = [
     title: "The Art of Hand Block Printing in Indian Fashion",
     excerpt: "Discover the intricate craft of hand block printing and how this traditional technique continues to influence modern Indian fashion designs.",
     date: "March 8, 2024",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/Handcrafted-Quality.png",
     category: "Fashion Techniques",
     readTime: "5 min read"
   },
@@ -20,7 +20,7 @@ const blogPosts = [
     title: "Styling Your Anarkali for Different Occasions",
     excerpt: "From casual gatherings to formal events, learn how to style your Anarkali in versatile ways that suit every occasion.",
     date: "February 25, 2024",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/Top-notch-quality.png",
     category: "Style Tips",
     readTime: "4 min read"
   },
@@ -29,7 +29,7 @@ const blogPosts = [
     title: "The Evolution of Punjabi Suits in Modern Fashion",
     excerpt: "Explore how the traditional Punjabi suit has transformed and adapted to contemporary fashion trends while retaining its cultural essence.",
     date: "February 12, 2024",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/Shipping-Worldwide.png",
     category: "Fashion History",
     readTime: "6 min read"
   },
@@ -38,7 +38,7 @@ const blogPosts = [
     title: "Sustainable Practices in Indian Fashion",
     excerpt: "Learn about the growing movement toward sustainable and ethical practices in Indian fashion and how artisans are leading the way.",
     date: "January 30, 2024",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/Customised-Fabrics.png",
     category: "Sustainability",
     readTime: "7 min read"
   },
@@ -65,7 +65,7 @@ export default function BlogPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative h-[300px] lg:h-auto">
                   <Image
-                    src="https://images.unsplash.com/photo-1583336663277-620dc1996580?w=800&auto=format&fit=crop"
+                    src="/images/fashion-runway.png"
                     alt="Traditional Meets Modern: The Future of Indian Fashion"
                     fill
                     className="object-cover"

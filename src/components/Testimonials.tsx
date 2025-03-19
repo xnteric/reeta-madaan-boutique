@@ -14,28 +14,28 @@ const testimonials = [
   {
     id: 1,
     name: "Anjali M.",
-    avatar: "https://web-assets.same.dev/2076236770/3757503505.png",
+    avatar: "/images/1.png",
     comment: "As someone who appreciates Indian culture and art, I'm thrilled to find a brand that truly respects and elevates it. Every piece feels like it has a story, and I love how Reeta Madaan is keeping traditional techniques alive in such beautiful ways!",
     location: "Mumbai, India"
   },
   {
     id: 2,
     name: "Meera R.",
-    avatar: "https://web-assets.same.dev/3826536520/3735686446.png",
+    avatar: "/images/2.png",
     comment: "I've never owned anything quite like my Reeta Madaan Anarkali suit. The intricate embroidery and attention to detail are simply stunning. It's clear that each piece is made with passion and dedication. I get compliments every time I wear it!",
     location: "London, UK"
   },
   {
     id: 3,
     name: "Amanpreet S.",
-    avatar: "https://web-assets.same.dev/2076236770/3757503505.png",
+    avatar: "/images/3.png",
     comment: "Reeta Madaan has mastered the art of blending traditional Indian aesthetics with modern trends. My customized Punjabi suit fits me like a dream, and the fabric quality is incredible. I'm beyond happy with my purchase!",
     location: "Toronto, Canada"
   },
   {
     id: 4,
     name: "Claudia Hill",
-    avatar: "https://web-assets.same.dev/3826536520/3735686446.png",
+    avatar: "/images/22.png",
     comment: "The quality of craftsmanship in my Reeta Madaan outfit is unparalleled. The attention to detail, from the embroidery to the stitching, speaks volumes about their commitment to excellence. Truly a luxury experience from start to finish.",
     location: "New York, USA"
   },
@@ -105,7 +105,7 @@ export default function Testimonials() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(https://web-assets.same.dev/742375514/2556174153.png)",
+            backgroundImage: "url(/images/Untitled-design-2.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             mixBlendMode: "overlay"

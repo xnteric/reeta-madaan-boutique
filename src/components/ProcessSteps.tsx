@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const steps = [
   {
@@ -12,33 +13,13 @@ const steps = [
     title: "Your Idea",
     description: "Share your vision with us, whether it's a specific design, customization of an existing piece, or a concept that needs refinement.",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Image
+        src="/images/Handcrafted-Quality.png"
+        alt="Your Idea"
+        width={24}
+        height={24}
         className="w-6 h-6"
-      >
-        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
-        <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-        <path d="M12 2v2"></path>
-        <path d="M12 22v-2"></path>
-        <path d="m17 20.66-1-1.73"></path>
-        <path d="M11 10.27 7 3.34"></path>
-        <path d="m20.66 17-1.73-1"></path>
-        <path d="m3.34 7 1.73 1"></path>
-        <path d="M14 12h8"></path>
-        <path d="M2 12h2"></path>
-        <path d="m20.66 7-1.73 1"></path>
-        <path d="m3.34 17 1.73-1"></path>
-        <path d="m17 3.34-1 1.73"></path>
-        <path d="m7 20.66 1-1.73"></path>
-      </svg>
+      />
     ),
     subtitle: "Blueprint & Designs"
   },
@@ -47,34 +28,13 @@ const steps = [
     title: "Prototype",
     description: "Our expert design team develops a prototype that's perfectly aligned with your concept, adjusting every detail to your specifications.",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Image
+        src="/images/Top-notch-quality.png"
+        alt="Prototype"
+        width={24}
+        height={24}
         className="w-6 h-6"
-      >
-        <path d="M5.2 6.2l1.4 1.4"></path>
-        <path d="M13 2H7a5 5 0 0 0-5 5"></path>
-        <path d="M17.4 7.6l1.4 1.4"></path>
-        <path d="M22 7v-.5a3.5 3.5 0 0 0-3.5-3.5"></path>
-        <path d="M14.5 17.7a4 4 0 0 0 6.7-4.4"></path>
-        <path d="M18 12h.5"></path>
-        <path d="M4 15l2 2"></path>
-        <path d="M8.4 18.4l1.4 1.4"></path>
-        <path d="M3 12h1"></path>
-        <path d="M2 9v1"></path>
-        <path d="M13 7.5V10l2.5 2.5"></path>
-        <path d="M9.5 14.5 12 12l.5-.5"></path>
-        <path d="M12 12c-.5-.5-1.4-1.5-2-2"></path>
-        <path d="M3 21c4.5 0 8-2 12-4.5"></path>
-        <path d="M20 15c1 1 1 3.5 1 6"></path>
-      </svg>
+      />
     ),
     subtitle: "Pattern Grading & Sample Making"
   },
@@ -83,21 +43,13 @@ const steps = [
     title: "Approvals",
     description: "Review your prototype and provide feedback. We'll make adjustments until every detail meets your expectations.",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Image
+        src="/images/Shipping-Worldwide.png"
+        alt="Approvals"
+        width={24}
+        height={24}
         className="w-6 h-6"
-      >
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-      </svg>
+      />
     ),
     subtitle: "Sample Approval & Pattern Grading"
   },
@@ -106,24 +58,13 @@ const steps = [
     title: "Finalize",
     description: "Once approved, we proceed with the production of your custom design, maintaining the same quality and attention to detail.",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Image
+        src="/images/Customised-Fabrics.png"
+        alt="Finalize"
+        width={24}
+        height={24}
         className="w-6 h-6"
-      >
-        <path d="M3 6v18h18"></path>
-        <path d="M7 14h.01"></path>
-        <path d="M11 16h.01"></path>
-        <path d="M16 15.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
-        <path d="m15 11-.91-2.2-.32.1a1.5 1.5 0 0 1-1.9-.8 1.5 1.5 0 0 1 .8-1.9l.32-.1L13 4l-.44-.9h-.33a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5h.33L13 1l3 5 1.1.57.07-.37a1.5 1.5 0 0 1 1.5-1.2 1.5 1.5 0 0 1 1.2 1.5v.37l1.33.7 3 5-2 1-1 5-5 2-5-2-1-5-2-1 1-2v-.5h.01"></path>
-      </svg>
+      />
     ),
     subtitle: "Approval for Bulk Production"
   },
@@ -132,21 +73,13 @@ const steps = [
     title: "Dispatch",
     description: "We carefully package and ship your finished garments, ensuring they reach you in perfect condition, ready to be enjoyed.",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Image
+        src="/images/Shipping-Worldwide.png"
+        alt="Dispatch"
+        width={24}
+        height={24}
         className="w-6 h-6"
-      >
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-      </svg>
+      />
     ),
     subtitle: "Dispatch, Logistics & Reorder"
   }
@@ -185,7 +118,7 @@ export default function ProcessSteps() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(https://web-assets.same.dev/340859424/423611638.png)",
+            backgroundImage: "url(/images/Untitled-design-2.png)",
             backgroundSize: "400px",
             backgroundRepeat: "repeat",
             opacity: 0.05

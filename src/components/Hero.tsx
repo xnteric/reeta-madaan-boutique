@@ -32,7 +32,7 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40 z-10" />
         <Image
-          src="https://web-assets.same.dev/3912981138/3739621807.jpeg"
+          src="/images/fashion-runway.png"
           alt="Luxurious Indian Fashion"
           fill
           priority
@@ -121,7 +121,7 @@ export default function Hero() {
         }}
       >
         <Image
-          src="https://web-assets.same.dev/3859986984/332052239.png"
+          src="/images/Untitled-design-2.png"
           alt="Decorative Element"
           width={120}
           height={120}

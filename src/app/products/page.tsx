@@ -27,7 +27,7 @@ const indiaWearProducts: Product[] = [
   {
     id: 1,
     name: "Anarkali Kurta Set",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/1.png",
     price: "₹12,999",
     category: "India Wear",
     isNew: true,
@@ -35,7 +35,7 @@ const indiaWearProducts: Product[] = [
   {
     id: 2,
     name: "Embroidered Punjabi Suit",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/2.png",
     price: "₹14,599",
     category: "India Wear",
     isNew: false,
@@ -43,7 +43,7 @@ const indiaWearProducts: Product[] = [
   {
     id: 3,
     name: "Hand Block Printed Kurta",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/3.png",
     price: "₹8,999",
     category: "India Wear",
     isNew: true,
@@ -51,7 +51,7 @@ const indiaWearProducts: Product[] = [
   {
     id: 4,
     name: "Traditional Saree",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/traditional-saree.jpg",
     price: "₹18,599",
     category: "India Wear",
     isNew: false,
@@ -62,7 +62,7 @@ const westernWearProducts: Product[] = [
   {
     id: 5,
     name: "Silk Fusion Blouse",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/22.png",
     price: "₹4,999",
     category: "Western Wear",
     isNew: true,
@@ -70,7 +70,7 @@ const westernWearProducts: Product[] = [
   {
     id: 6,
     name: "Contemporary Pants",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/23.png",
     price: "₹6,599",
     category: "Western Wear",
     isNew: false,
@@ -78,7 +78,7 @@ const westernWearProducts: Product[] = [
   {
     id: 7,
     name: "Designer Top",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/runway-show.png",
     price: "₹3,999",
     category: "Western Wear",
     isNew: true,
@@ -86,7 +86,7 @@ const westernWearProducts: Product[] = [
   {
     id: 8,
     name: "Indo-Western Jacket",
-    image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+    image: "/images/Untitled-design-2.png",
     price: "₹9,599",
     category: "Western Wear",
     isNew: false,
@@ -171,8 +171,21 @@ export default function ProductsPage() {
     <main className="min-h-screen">
       <Navbar />
 
-      <div className="pt-24 pb-16 bg-cream">
-        <div className="container-custom py-8">
+      <div className="pt-24 pb-16 bg-cream relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url(/images/Untitled-design-2.png)",
+              backgroundSize: "200px",
+              backgroundRepeat: "repeat",
+              opacity: 0.05
+            }}
+          />
+        </div>
+
+        <div className="container-custom py-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h1 className="text-3xl md:text-5xl font-serif mb-4">Our Collections</h1>
             <div className="h-0.5 w-20 bg-primary mx-auto mb-6" />

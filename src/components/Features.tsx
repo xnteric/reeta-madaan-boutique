@@ -7,22 +7,22 @@ import { Separator } from "@/components/ui/separator";
 
 const features = [
   {
-    icon: "https://web-assets.same.dev/835292839/1237712160.png",
+    icon: "/images/Handcrafted-Quality.png",
     title: "Handcrafted Quality",
     description: "Each garment is meticulously crafted with exquisite attention to detail, incorporating traditional techniques such as hand embroidery and intricate stitching patterns."
   },
   {
-    icon: "https://web-assets.same.dev/4114589538/4230917412.png",
+    icon: "/images/Shipping-Worldwide.png",
     title: "Shipping Worldwide",
     description: "We deliver our luxurious creations to fashion enthusiasts across the globe, ensuring that our artisanal craftsmanship reaches every corner of the world."
   },
   {
-    icon: "https://web-assets.same.dev/3634315319/4069957303.png",
+    icon: "/images/Top-notch-quality.png",
     title: "Top Notch Fabrics",
     description: "We source only the finest textiles, from sumptuous silks to breathable cottons, ensuring that every piece not only looks exquisite but feels magnificent against your skin."
   },
   {
-    icon: "https://web-assets.same.dev/3296797759/1112574145.png",
+    icon: "/images/Customised-Fabrics.png",
     title: "Customized Creations",
     description: "Our bespoke service allows you to collaborate with our designers to create personalized garments that perfectly reflect your individual style and preferences."
   }
@@ -60,7 +60,7 @@ export default function Features() {
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
-          backgroundImage: "url(https://web-assets.same.dev/3859986984/332052239.png)",
+          backgroundImage: "url(/images/Untitled-design-2.png)",
           backgroundSize: "400px",
           backgroundRepeat: "repeat",
           opacity: 0.05

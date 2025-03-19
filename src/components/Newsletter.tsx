@@ -29,7 +29,7 @@ export default function Newsletter() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(https://web-assets.same.dev/340859424/423611638.png)",
+            backgroundImage: "url(/images/Untitled-design-2.png)",
             backgroundSize: "200px",
             backgroundRepeat: "repeat",
             opacity: 0.1
@@ -93,7 +93,7 @@ export default function Newsletter() {
                 <div className="absolute inset-0 rounded-full bg-accent/30" />
                 <div className="absolute inset-4 rounded-full bg-primary/10 flex items-center justify-center">
                   <Image
-                    src="https://web-assets.same.dev/447170732/390526116.jpeg"
+                    src="/images/runway-show.png"
                     alt="Reeta Madaan Newsletter"
                     width={300}
                     height={300}

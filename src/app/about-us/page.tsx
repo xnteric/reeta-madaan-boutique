@@ -40,7 +40,7 @@ export default function AboutUsPage() {
             <div className="order-1 md:order-2 relative">
               <div className="relative h-[500px] w-full rounded-lg overflow-hidden">
                 <Image
-                  src="https://web-assets.same.dev/447170732/390526116.jpeg"
+                  src="/images/fashion-runway.png"
                   alt="Reeta Madaan"
                   fill
                   className="object-cover"

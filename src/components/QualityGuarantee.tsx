@@ -24,7 +24,7 @@ export default function QualityGuarantee() {
           >
             <div className="relative rounded-lg overflow-hidden aspect-[4/5] w-full">
               <Image
-                src="https://web-assets.same.dev/1051021907/2539210816.png"
+                src="/images/Handcrafted-Quality.png"
                 alt="Craftsmanship"
                 fill
                 className="object-cover object-center"
@@ -39,19 +39,13 @@ export default function QualityGuarantee() {
             >
               <div className="flex items-start gap-4">
                 <div className="bg-gold text-white p-3 rounded-full flex-shrink-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <Image
+                    src="/images/Top-notch-quality.png"
+                    alt="Quality Guaranteed"
+                    width={24}
+                    height={24}
                     className="w-6 h-6"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
+                  />
                 </div>
                 <div>
                   <h4 className="text-lg font-medium font-serif mb-2">Quality Guaranteed</h4>

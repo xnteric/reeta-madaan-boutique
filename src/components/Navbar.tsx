@@ -84,7 +84,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="relative h-8 w-8 sm:h-10 sm:w-10 overflow-hidden">
               <Image
-                src="/logo.png"
+                src="/images/logo.png"
                 alt="Reeta Madaan"
                 width={40}
                 height={40}

@@ -3,14 +3,39 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactUsPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
 
-      <div className="pt-20 sm:pt-24 bg-cream">
-        <div className="container-custom py-8 sm:py-12 md:py-16">
+      <div className="pt-20 sm:pt-24 bg-cream relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url(/images/Untitled-design-2.png)",
+              backgroundSize: "200px",
+              backgroundRepeat: "repeat",
+              opacity: 0.05
+            }}
+          />
+        </div>
+
+        <div className="container-custom py-8 sm:py-12 md:py-16 relative z-10">
+          {/* Decorative Image */}
+          <div className="absolute top-0 right-0 w-48 h-48 opacity-10 pointer-events-none">
+            <Image
+              src="/images/Handcrafted-Quality.png"
+              alt="Decorative"
+              width={192}
+              height={192}
+              className="w-full h-full object-contain"
+            />
+          </div>
+
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-serif mb-3 sm:mb-4">Contact Us</h1>
             <div className="h-0.5 w-20 bg-primary mx-auto mb-4 sm:mb-6" />

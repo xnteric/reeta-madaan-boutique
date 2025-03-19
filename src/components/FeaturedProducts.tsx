@@ -21,7 +21,7 @@ const products = {
     {
       id: 1,
       name: "Anarkali Kurta Set",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/1.png",
       price: "₹12,999",
       category: "India Wear",
       isNew: true,
@@ -29,7 +29,7 @@ const products = {
     {
       id: 2,
       name: "Embroidered Punjabi Suit",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/2.png",
       price: "₹14,599",
       category: "India Wear",
       isNew: false,
@@ -37,7 +37,7 @@ const products = {
     {
       id: 3,
       name: "Hand Block Printed Kurta",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/3.png",
       price: "₹8,999",
       category: "India Wear",
       isNew: true,
@@ -45,7 +45,7 @@ const products = {
     {
       id: 4,
       name: "Traditional Saree",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/traditional-saree.jpg",
       price: "₹18,599",
       category: "India Wear",
       isNew: false,
@@ -55,7 +55,7 @@ const products = {
     {
       id: 5,
       name: "Silk Fusion Blouse",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/22.png",
       price: "₹4,999",
       category: "Western Wear",
       isNew: true,
@@ -63,7 +63,7 @@ const products = {
     {
       id: 6,
       name: "Contemporary Pants",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/23.png",
       price: "₹6,599",
       category: "Western Wear",
       isNew: false,
@@ -71,7 +71,7 @@ const products = {
     {
       id: 7,
       name: "Designer Top",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/runway-show.png",
       price: "₹3,999",
       category: "Western Wear",
       isNew: true,
@@ -79,7 +79,7 @@ const products = {
     {
       id: 8,
       name: "Indo-Western Jacket",
-      image: "https://images.unsplash.com/photo-1610189083459-41a1056bb749?w=800&auto=format&fit=crop",
+      image: "/images/Untitled-design-2.png",
       price: "₹9,599",
       category: "Western Wear",
       isNew: false,

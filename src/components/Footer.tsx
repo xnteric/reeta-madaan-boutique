@@ -15,7 +15,7 @@ export default function Footer() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(https://web-assets.same.dev/340859424/423611638.png)",
+            backgroundImage: "url(/images/Untitled-design-2.png)",
             backgroundSize: "200px",
             backgroundRepeat: "repeat",
             opacity: 0.1
@@ -31,7 +31,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <div className="flex items-center gap-3">
                 <Image
-                  src="/logo.png"
+                  src="/images/logo.png"
                   alt="Reeta Madaan"
                   width={48}
                   height={48}
