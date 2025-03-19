@@ -72,10 +72,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 py-2",
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-2"
-          : "bg-black/30 backdrop-blur-sm py-2 sm:py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          : "bg-black/30 backdrop-blur-sm"
       )}
     >
       <div className="container-custom flex items-center justify-between">
@@ -94,7 +94,7 @@ export default function Navbar() {
             </div>
             <span className={cn(
               "text-base sm:text-lg md:text-xl font-serif font-medium",
-              isScrolled ? "text-primary" : "text-white"
+              isScrolled ? "text-white" : "text-primary"
             )}>
               Reeta Madaan
             </span>
