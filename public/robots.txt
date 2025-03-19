@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://reeta-madaan-boutique.vercel.app
+
+# Sitemaps
+Sitemap: https://reeta-madaan-boutique.vercel.app/sitemap.xml

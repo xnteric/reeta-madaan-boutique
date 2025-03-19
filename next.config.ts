@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
-  // Re-enable static export for GitHub Pages
-  output: 'export',
+  // Remove static export to enable headers
+  // output: 'export',
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   // Skip TypeScript checking for the build process
   typescript: {
@@ -15,7 +15,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // Enable image optimization when not using export
+    unoptimized: process.env.NODE_ENV === "development" ? true : true,
+    formats: ['image/webp'],
     remotePatterns: [
       {
         protocol: "https",
@@ -36,6 +38,24 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  // Add compression
+  compress: true,
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  // Configure headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
 };
 

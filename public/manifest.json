@@ -1,0 +1,21 @@
+{
+  "name": "Reeta Madaan Boutique",
+  "short_name": "Reeta Madaan",
+  "description": "Luxury Indian Fashion Boutique - Where Tradition Meets Modern Elegance",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#A14D36",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png", 
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
