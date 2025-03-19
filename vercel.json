@@ -58,5 +58,8 @@
     "domains": ["source.unsplash.com", "images.unsplash.com", "web-assets.same.dev"],
     "formats": ["image/webp"],
     "sizes": [640, 750, 828, 1080, 1200, 1920, 2048, 3840]
+  },
+  "env": {
+    "NODE_ENV": "development"
   }
 }
